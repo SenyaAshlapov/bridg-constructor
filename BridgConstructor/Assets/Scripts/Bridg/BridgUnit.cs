@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class BridgUnit : MonoBehaviour
 {
-    [SerializeField]private bool _isUsed = false;
+    private bool _isUsed = false;
+
     [SerializeField]private GameObject _bridgUnit;
     [SerializeField]private Transform _unitSpawnPoint;
-
 
     private void Awake() 
     {
@@ -18,6 +19,7 @@ public class BridgUnit : MonoBehaviour
     private void OnDestroy() 
     {
         BridgBuilder.BuildBridgUnit -= buildNewBridgUnit;
+        BridgBuilder.BridgIsBuilded -= diactivateUnit;
     }
 
     private void buildNewBridgUnit()
@@ -35,6 +37,7 @@ public class BridgUnit : MonoBehaviour
             _isUsed = true;
         }
     }
+
 
     private void diactivateUnit() => _isUsed = true;
 }

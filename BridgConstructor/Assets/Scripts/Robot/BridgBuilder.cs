@@ -69,9 +69,11 @@ public class BridgBuilder : MonoBehaviour
     {
          if(_isCanBuild == true)
         { 
-            while(_isCanBuild == true){
-                BuildBridgUnit?.Invoke();
+            while(_isCanBuild == true)
+            {
                 yield return new WaitForSeconds(_timeToBuild);
+                BuildBridgUnit?.Invoke();
+                
             }   
             yield return null;
          } 

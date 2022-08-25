@@ -14,6 +14,7 @@ public class Robot : MonoBehaviour
     private RobotIdleState _idleState;
     private RobotMoveState _moveState;
     private RobotBuildState _buildState;
+    private RobotLoseState _loseState;
 
     #endregion
 
@@ -22,7 +23,18 @@ public class Robot : MonoBehaviour
 
     void Awake()
     {
+        BridgBuilder.BridgIsBuilded += changeStateToMove;
+        RobotStoper.StopRobot += changeStateToBuild;
+        Grounder.NotGrounder += changeStateToLose;
+
         _playerInput = new PlayerInput();
+    }
+
+    private void OnDestroy() 
+    {
+        BridgBuilder.BridgIsBuilded -= changeStateToMove;
+        RobotStoper.StopRobot -= changeStateToBuild;
+        Grounder.NotGrounder -= changeStateToLose;
     }
 
     private void Start() 
@@ -30,13 +42,15 @@ public class Robot : MonoBehaviour
         _idleState = new RobotIdleState();
         _moveState = new RobotMoveState();
         _buildState = new RobotBuildState();
+        _loseState = new RobotLoseState();
 
 
         _idleState.InitState(_playerTransform,_playerAnimator,_playerInput);
         _moveState.InitState(_playerTransform,_playerAnimator,_playerInput);
         _buildState.InitState(_playerTransform,_playerAnimator,_playerInput);
+        _loseState.InitState(_playerTransform,_playerAnimator,_playerInput);
 
-        changeState(_buildState);
+        changeState(_moveState);
     }
 
     void Update()
@@ -54,6 +68,10 @@ public class Robot : MonoBehaviour
         _playerInput.Disable();
     }
     #endregion
+
+    private void changeStateToMove() => changeState(_moveState);
+    private void changeStateToBuild() => changeState(_buildState);
+    private void changeStateToLose() => changeState(_loseState);
 
     private void changeState(IState newState)
     {
