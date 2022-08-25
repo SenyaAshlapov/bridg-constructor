@@ -5,7 +5,7 @@ using UnityEngine;
 public  interface IState
 {
     
-    void InitState(Robot robot);
+    void InitState(Transform transform, Animator animator, PlayerInput input);
 
     void StartState();
 

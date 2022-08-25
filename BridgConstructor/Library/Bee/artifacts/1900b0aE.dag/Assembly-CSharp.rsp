@@ -377,10 +377,14 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/Scripts/Bridg/BridgUnit.cs"
 "Assets/Scripts/IState.cs"
+"Assets/Scripts/Robot/BridgBuilder.cs"
 "Assets/Scripts/Robot/PlayerInput.cs"
 "Assets/Scripts/Robot/Robot.cs"
-"Assets/Scripts/Robot/RobotIdleState.cs"
+"Assets/Scripts/Robot/States/RobotBuildState.cs"
+"Assets/Scripts/Robot/States/RobotIdleState.cs"
+"Assets/Scripts/Robot/States/RobotMoveState.cs"
 -langversion:9.0
 
 /deterministic
