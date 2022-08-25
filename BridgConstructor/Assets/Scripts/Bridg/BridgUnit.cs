@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -9,6 +7,7 @@ public class BridgUnit : MonoBehaviour
 
     [SerializeField]private GameObject _bridgUnit;
     [SerializeField]private Transform _unitSpawnPoint;
+    [SerializeField]private AudioSource _buildSound; 
 
     private void Awake() 
     {
@@ -30,6 +29,11 @@ public class BridgUnit : MonoBehaviour
             {
                 var newUnit = Instantiate (_bridgUnit, _unitSpawnPoint.position, _unitSpawnPoint.rotation);
                 newUnit.transform.parent = _unitSpawnPoint;
+                float randomPitch = Random.Range(-0.3f, 0.3f);
+                 _buildSound.pitch += randomPitch;
+                
+                _buildSound.Play();
+
             }
 
             _isUsed = true;

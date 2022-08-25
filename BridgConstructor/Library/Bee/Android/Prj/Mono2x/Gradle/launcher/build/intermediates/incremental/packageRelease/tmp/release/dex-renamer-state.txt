@@ -1,0 +1,4 @@
+#Thu Aug 25 23:18:06 MSK 2022
+base.0=D\:\\bridg-constructor\\BridgConstructor\\Library\\Bee\\Android\\Prj\\Mono2x\\Gradle\\launcher\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
