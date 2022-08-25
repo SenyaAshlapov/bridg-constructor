@@ -26,8 +26,6 @@ public class BridgUnit : MonoBehaviour
     {
         if(_isUsed == false)
         {       
-            Debug.Log("Unit spawned");
-
             if(_bridgUnit != null)
             {
                 var newUnit = Instantiate (_bridgUnit, _unitSpawnPoint.position, _unitSpawnPoint.rotation);

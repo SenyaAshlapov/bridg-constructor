@@ -379,6 +379,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Bridg/BridgUnit.cs"
 "Assets/Scripts/Bridg/RobotStoper.cs"
+"Assets/Scripts/Island/Island.cs"
+"Assets/Scripts/Island/IslandSpawner.cs"
 "Assets/Scripts/IState.cs"
 "Assets/Scripts/Robot/BridgBuilder.cs"
 "Assets/Scripts/Robot/Grounder.cs"
