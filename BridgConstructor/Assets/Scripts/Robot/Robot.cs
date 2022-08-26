@@ -8,26 +8,25 @@ public class Robot : MonoBehaviour
 
 
     #region Fields
+
+    [SerializeField]private Transform _playerTransform;
+    [SerializeField]private float _deadHeight;
+    [Space(10)]
+    [SerializeField]private Animator _playerAnimator;
+    [SerializeField]private AudioSource _loseSound;
+
+    private PlayerInput _playerInput;
     public static int Score = 0;
     private bool _isFirstIsland = true;
     private bool _isLose = false;
 
-    [SerializeField]private Transform _playerTransform;
-    [SerializeField]private Animator _playerAnimator;
-    [SerializeField]private float _deadHeight;
-    private PlayerInput _playerInput;
-
-    private  IState _currentState;
+    private IState _currentState;
     private RobotIdleState _idleState;
     private RobotMoveState _moveState;
     private RobotBuildState _buildState;
     private RobotLoseState _loseState;
 
-    [SerializeField]private AudioSource _loseSound;
-
-    
     #endregion
-
 
     #region Unity Functions
 
@@ -83,8 +82,11 @@ public class Robot : MonoBehaviour
     {
         _playerInput.Disable();
     }
+
     #endregion
 
+    #region State Functions
+    
     private void changeStateToMove() => changeState(_moveState);
     
     private void changeStateToBuild() 
@@ -111,7 +113,6 @@ public class Robot : MonoBehaviour
 
             _isLose = true;
         }
-
     } 
 
     private void changeState(IState newState)
@@ -120,5 +121,5 @@ public class Robot : MonoBehaviour
         _currentState = newState;
     }
     
-
+    #endregion
 }

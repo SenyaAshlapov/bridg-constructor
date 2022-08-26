@@ -7,15 +7,21 @@ public class BridgBuilder : MonoBehaviour
     public static BridgEvent BuildBridgUnit;
     public static BridgEvent BridgIsBuilded;
 
+    #region Fields
+
     [SerializeField]private BridgUnit _bridgUnit;
     [SerializeField]private Transform _unitSpawnPoint;
 
-    private BridgUnit _firtsBridgUnit;
-
+    [Space(10)]
     [SerializeField]private float _timeToBuild;
     [SerializeField]private float _putDownSpeed;
-
+    
+    private BridgUnit _firtsBridgUnit;
     private bool _isCanBuild = false;
+
+    #endregion
+
+    #region Unity Functions
 
     private void Awake() 
     {
@@ -28,6 +34,10 @@ public class BridgBuilder : MonoBehaviour
         RobotBuildState.StartBuid -= startBuildBridg;
         RobotBuildState.StopBuild -= stopBuildBridg;
     }
+
+    #endregion
+
+    #region BuildBridg Functions
 
     private void startBuildBridg()
     {
@@ -45,29 +55,9 @@ public class BridgBuilder : MonoBehaviour
         StartCoroutine(putDownBridg());
     }   
 
-    private IEnumerator putDownBridg()
-    {
-        float putDownProgress = 0;
-        Quaternion startQuaternion = Quaternion.Euler(new Vector3(0,0,0));
-
-        Quaternion endQuaternion = Quaternion.Euler(new Vector3(0,0,-90f));
-        BridgIsBuilded?.Invoke();
-
-        while(putDownProgress <=  1)
-        {
-            _firtsBridgUnit.transform.rotation = Quaternion.Lerp(startQuaternion, endQuaternion, _putDownSpeed * putDownProgress);
-            putDownProgress += Time.deltaTime;
-            yield return new WaitForSeconds(0.01f);
-        }
-
-        
-        
-        yield return null;
-    }
-
     private IEnumerator buildBridg()
     {
-         if(_isCanBuild == true)
+        if(_isCanBuild == true)
         { 
             while(_isCanBuild == true)
             {
@@ -76,7 +66,27 @@ public class BridgBuilder : MonoBehaviour
                 
             }   
             yield return null;
-         } 
-        
+        } 
+       
     }
+
+    private IEnumerator putDownBridg()
+    {
+        BridgIsBuilded?.Invoke();
+
+        Quaternion startQuaternion = Quaternion.Euler(new Vector3(0,0,0));
+        Quaternion endQuaternion = Quaternion.Euler(new Vector3(0,0,-90f));
+
+        float putDownProgress = 0;
+
+        while(putDownProgress <=  1)
+        {
+            _firtsBridgUnit.transform.rotation = Quaternion.Lerp(startQuaternion, endQuaternion, _putDownSpeed * putDownProgress);
+            putDownProgress += Time.deltaTime;
+            yield return new WaitForSeconds(0.01f);
+        }
+        yield return null;
+    }
+
+    #endregion
 }

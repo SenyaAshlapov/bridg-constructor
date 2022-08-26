@@ -23,7 +23,6 @@ public class FinishPanel : MonoBehaviour
         _scoreText.text = Robot.Score.ToString();
     }
 
-
     public void ExitToMenu()
     {
         SceneManager.LoadScene("Menu");

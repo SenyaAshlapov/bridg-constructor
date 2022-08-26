@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Island : MonoBehaviour
 {
+    #region Fields
+
     [SerializeField]private GameObject _leftIslandPart;
     [SerializeField]private GameObject _middleIslandPart;
     [SerializeField]private GameObject _rightIslandPart;
@@ -10,11 +12,14 @@ public class Island : MonoBehaviour
     [SerializeField]private int _maxIslandSize;
     [SerializeField]private float _partsSpawnShift;
 
+    #endregion
 
     private void Start() 
     {
         GenerateIsland();
     }
+
+    #region GenerateIsland Fields
 
     public void GenerateIsland()
     {
@@ -22,20 +27,27 @@ public class Island : MonoBehaviour
         float totalShift = 0;
 
         var leftIslandPart = Instantiate(_leftIslandPart, _spawnPoint);
+
         for(int i = 1; i<= islandSize; i++)
         {
             totalShift += _partsSpawnShift;
+
             if(i == islandSize)
             {
-                var rightIslandPart =  Instantiate(_rightIslandPart, _spawnPoint.position + new Vector3(totalShift, 0, 0), _spawnPoint.rotation);
-                rightIslandPart.transform.parent = _spawnPoint;
+                generateIslandPart(_rightIslandPart, _spawnPoint,totalShift);
             }
             else
             {
-                var middleIslandPart = Instantiate(_middleIslandPart, _spawnPoint.position + new Vector3(totalShift, 0, 0), _spawnPoint.rotation);
-                middleIslandPart.transform.parent = _spawnPoint;
-
+                generateIslandPart(_middleIslandPart, _spawnPoint,totalShift);
             }
         }
     }
+
+    private void generateIslandPart(GameObject part, Transform spawnPoint, float shift)
+    {
+        var newPart =  Instantiate(part, spawnPoint.position + new Vector3(shift, 0, 0), spawnPoint.rotation);
+        newPart.transform.parent = spawnPoint;
+    }
+
+    #endregion
 }

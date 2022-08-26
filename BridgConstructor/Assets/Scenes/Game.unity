@@ -576,6 +576,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1191376581468363330, guid: a0b08492a61b7964a8ba80939c1c9f4a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3.0445764
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191376581468363330, guid: a0b08492a61b7964a8ba80939c1c9f4a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.0445764
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191376581468363330, guid: a0b08492a61b7964a8ba80939c1c9f4a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.0445764
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191376581468363330, guid: a0b08492a61b7964a8ba80939c1c9f4a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 774
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191376581468363330, guid: a0b08492a61b7964a8ba80939c1c9f4a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 373
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191376581947146617, guid: a0b08492a61b7964a8ba80939c1c9f4a, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191376581947146617, guid: a0b08492a61b7964a8ba80939c1c9f4a, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 1191376582018072048, guid: a0b08492a61b7964a8ba80939c1c9f4a, type: 3}
       propertyPath: m_Name
       value: Robot
@@ -625,8 +653,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1191376582018072053, guid: a0b08492a61b7964a8ba80939c1c9f4a, type: 3}
+      propertyPath: _timeToBuild
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191376582018072053, guid: a0b08492a61b7964a8ba80939c1c9f4a, type: 3}
       propertyPath: _putDownSpeed
-      value: 6.5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 1191376582018072056, guid: a0b08492a61b7964a8ba80939c1c9f4a, type: 3}
       propertyPath: m_audioClip

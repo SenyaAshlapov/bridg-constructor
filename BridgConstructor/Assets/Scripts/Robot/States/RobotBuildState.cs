@@ -3,7 +3,6 @@ using UnityEngine;
 public class RobotBuildState : IState
 {
     public delegate void RobotEvent();
-
     public static RobotEvent StartBuid;
     public static RobotEvent StopBuild;
 
